@@ -1,0 +1,96 @@
+{% load humanize %} 
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldoger Finance</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center mb-4">Saldoger: Pencatat Keuangan</h2>
+
+    <div class="alert alert-info text-center shadow-sm">
+        <h4>Saldo Saat Ini: <strong>Rp {{ saldo|intcomma }}</strong></h4>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-4 shadow-sm mb-3">
+                <h4>Tambah Transaksi</h4>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary w-100">Simpan</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card p-4 shadow-sm mb-3">
+                <h4>Ringkasan</h4>
+                <div style="height: 200px; width: 100%; display: flex; justify-content: center;">
+                    <canvas id="financeChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card p-4 shadow-sm">
+                <h4>Riwayat Transaksi</h4>
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Waktu</th>
+                            <th>Kategori</th>
+                            <th>Tipe</th>
+                            <th>Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for t in transactions %}
+                        <tr>
+                            <td>{{ t.date|date:"d M Y, H:i" }}</td>
+                            <td>{{ t.category }}</td>
+                            <td>
+                                {% if t.type == 'IN' %}
+                                    <span class="badge bg-success">Masuk</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Keluar</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-end">Rp {{ t.amount|intcomma }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="4" class="text-center">Belum ada data.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const ctx = document.getElementById('financeChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Pemasukan', 'Pengeluaran'],
+            datasets: [{
+                data: [{{ total_income }}, {{ total_expense }}],
+                backgroundColor: ['#198754', '#dc3545'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+        }
+    });
+</script>
+
+</body>
+</html>
