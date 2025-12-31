@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tracker',
     'django.contrib.humanize',
+    'users',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -121,4 +124,12 @@ USE_THOUSAND_SEPARATOR = True
 STATIC_URL = 'static/'
 
 # Jika user belum login, lempar ke halaman login admin
-LOGIN_URL = '/admin/login/'
+LOGIN_URL = 'login'
+
+# Setelan Login
+LOGIN_REDIRECT_URL = '/'   # Setelah login, masuk ke halaman utama (tracker)
+LOGOUT_REDIRECT_URL = '/login/' # Setelah logout, kembali ke halaman login
+
+# Konfigurasi Crispy Forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
