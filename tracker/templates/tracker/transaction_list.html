@@ -13,10 +13,18 @@
         </div>
     </div>
 
-    <div class="alert alert-primary text-center shadow-sm border-0 mb-4" style="background: linear-gradient(to right, #2563eb, #1d4ed8); color: white;">
-        <h5 class="mb-0">Saldo Saat Ini</h5>
-        <h2 class="fw-bold">Rp {{ saldo|floatformat:2 }}</h2>
-    </div>
+    {% if saldo < 0 %}
+        <div class="alert alert-danger text-center shadow-sm border-0 mb-4" style="background: linear-gradient(to right, #dc2626, #991b1b); color: white;">
+            <h5 class="mb-1">⚠️ Peringatan: Saldo Minus!</h5>
+            <h2 class="fw-bold">Rp {{ saldo|floatformat:2|intcomma }}</h2>
+            <small style="opacity: 0.9;">Pengeluaranmu lebih besar dari pemasukan</small>
+        </div>
+    {% else %}
+        <div class="alert alert-primary text-center shadow-sm border-0 mb-4" style="background: linear-gradient(to right, #2563eb, #1d4ed8); color: white;">
+            <h5 class="mb-0">Saldo Saat Ini</h5>
+            <h2 class="fw-bold">Rp {{ saldo|floatformat:2|intcomma }}</h2>
+        </div>
+    {% endif %}
     
     <div class="row">
         <div class="col-md-4 mb-4">
