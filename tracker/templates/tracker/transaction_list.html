@@ -9,7 +9,13 @@
     <div class="row">
         <div class="col-12 text-center mb-4">
             <h3 class="fw-bold" style="color: #1e3a8a;">Saldoger Dashboard</h3>
-            <p class="text-muted">Kelola uangmu, atur masa depanmu.</p>
+            <p class="text-muted mb-2">Kelola uangmu, atur masa depanmu.</p>
+            
+            <a href="{% url 'reset_data' %}" 
+               class="btn btn-outline-danger btn-sm" 
+               onclick="return confirm('⚠️ HATI-HATI! \n\nApakah kamu yakin ingin MENGHAPUS SEMUA DATA transaksi? \nSaldo akan kembali ke 0 dan tidak bisa dikembalikan.')">
+               <i class="bi bi-trash"></i> Reset Semua Data
+            </a>
         </div>
     </div>
 
@@ -113,7 +119,7 @@
             data: {
                 labels: ['Pemasukan', 'Pengeluaran'],
                 datasets: [{
-                    data: [{{ total_income }}, {{ total_expense }}],
+                    data: [{{ total_income|stringformat:"f" }}, {{ total_expense|stringformat:"f" }}],
                     backgroundColor: ['#10b981', '#ef4444'], 
                     hoverOffset: 4
                 }]

@@ -31,3 +31,9 @@ def transaction_list(request):
         'saldo': saldo
     }
     return render(request, 'tracker/transaction_list.html', context)
+
+# fitur reset  data (01/01/2026)
+
+def reset_data(request):
+    Transaction.objects.all().delete()
+    return redirect('transaction_list')
