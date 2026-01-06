@@ -57,7 +57,7 @@ Untuk informasi, ini adalah sebuah aplikasi web yang belum saya hosting. Jadi, k
 
 ## Dokumentasi
 
-![Tampilan Aplikasi](documentation/tampilan.png)
+![Tampilan Aplikasi](Documentation/tampilan.png)
 
 ---
 
