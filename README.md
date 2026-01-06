@@ -2,13 +2,13 @@
 
 ## Apa itu Saldoger
 
-Saldoger merupakan aplikasi yang saya rancang untuk membantu mencatat pemasukan dan pengeluaran keuangan orang-orang (informasi keuangan) supaya orang-orang yang menggunakan aplikasi ini dimudahkan dalam mengecek informasi keuangan mereka.
+Saldoger merupakan aplikasi web yang saya rancang untuk membantu mencatat pemasukan dan pengeluaran keuangan orang-orang (informasi keuangan) supaya orang-orang yang menggunakan aplikasi ini dimudahkan dalam mengecek informasi keuangan mereka.
 
 ---
 
 ## Tujuan Pengembangan
 
-Saldoger dikembangkan oleh saya guna membantu orang-orang termasuk saya sendiri, yang merasa sulit mengelola keuangan karena sering sekali susah mengingat informasi keuangan saya. Jadi, aplikasi Saldoger ini adalah solusi yang terpikirkan oleh saya untuk membantu menyelesaikan masalah tersebut. Disamping hal itu, tujuan saya yang lainnya mengembangkan aplikasi ini adalah sebagai bahan saya untuk berlatih mengelola struktur proyek menggunakan pustaka Django dan Bootstrap, mengelola database, dan menambah pengalaman dalam hal admin interface.
+Saldoger dikembangkan oleh saya guna membantu orang-orang termasuk saya sendiri, yang merasa sulit mengelola keuangan karena sering sekali susah mengingat informasi keuangan saya. Jadi, aplikasi web Saldoger ini adalah solusi yang terpikirkan oleh saya untuk membantu menyelesaikan masalah tersebut. Disamping hal itu, tujuan saya yang lainnya mengembangkan aplikasi ini adalah sebagai bahan saya untuk berlatih mengelola struktur proyek menggunakan pustaka Django dan Bootstrap, mengelola database, dan menambah pengalaman dalam hal admin interface.
 
 ---
 
@@ -39,7 +39,7 @@ Adapun fitur utama dari aplikasi ini adalah:
 
 ## Dokumentasi
 
-*Aplikasi ini masih dalam tahap pengembangan awal.
+*Aplikasi web ini masih dalam tahap pengembangan awal.
 
 ---
 
@@ -51,7 +51,13 @@ Saya akan terus berusaha dalam pengembangan aplikasi ini hingga aplikasi ini sem
 
 ## Pesan dari Saya
 
-Untuk informasi, ini adalah sebuah aplikasi yang bisa diinstall dan diakses di perangkat masing-masing. Tapi, masih dalam pengembangan dan perilisan resminya masih dalam tahap perancangan.
+Untuk informasi, ini adalah sebuah aplikasi web yang belum saya hosting. Jadi, ketika dihosting, kalian bisa akses di link web yang akan saya taruh di README ini.
+
+---
+
+## Dokumentasi
+
+![Tampilan Aplikasi](documentation/tampilan.png)
 
 ---
 
